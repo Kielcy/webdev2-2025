@@ -15,6 +15,8 @@ public class Car{
     private int year;
     private String color;
 
+    public int getId(){return id;}
+
     public String getMake() {
         return make;
     }
