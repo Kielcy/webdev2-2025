@@ -1,5 +1,6 @@
-package com.johnverz.webdev1_g1;
+package com.johnverz.webdev1_g1.utils;
 
+import com.johnverz.webdev1_g1.repositories.CarRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

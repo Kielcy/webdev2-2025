@@ -1,11 +1,14 @@
-package com.johnverz.webdev1_g1;
+package com.johnverz.webdev1_g1.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.johnverz.webdev1_g1.exceptions.ResourceNotFoundException;
+import com.johnverz.webdev1_g1.models.Car;
+import com.johnverz.webdev1_g1.repositories.CarRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -41,5 +44,13 @@ public class HomeController {
         return "redirect:/";
 
 
+    }
+
+    @GetMapping("/view")
+    public String view(@RequestParam int id, Model model){
+        Car car = carRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Car", id));
+
+        return "view";
     }
 }
