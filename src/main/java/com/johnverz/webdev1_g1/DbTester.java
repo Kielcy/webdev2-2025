@@ -19,10 +19,14 @@ public class DbTester implements CommandLineRunner {
         car.setYear(2017);
         car.setMake("Toyota");
         car.setColor("Grey");
+        car.setBodyType("Sedan");
+        car.setEngineType("4-Cylinder");
+        car.setLicensePlate("ABC-123");
         carRepository.save(car);
 
         carRepository.findAll().forEach(carRow -> {
-            System.out.println(carRow.getMake() + " " + carRow.getModel() + " " + carRow.getColor());
+            System.out.println(carRow.getMake() + " " + carRow.getModel() + " " + carRow.getColor() + 
+                             " - " + carRow.getBodyType() + " " + carRow.getEngineType() + " " + carRow.getLicensePlate());
         });
 
     }

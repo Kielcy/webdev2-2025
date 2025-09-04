@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - Car Management System</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <i class="fas fa-car"></i> Car Management
+            </a>
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="/cars">View Cars</a>
+                <a href="/cars/add">Add Car</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <h1 class="page-title">Oops! Something went wrong</h1>
+            <p class="page-subtitle">We encountered an error while processing your request</p>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="empty-state">
+                    <div class="empty-state-icon" style="color: var(--danger-color);">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Error Occurred</h3>
+                    <p>We're sorry, but something went wrong. Please try again or contact support if the problem persists.</p>
+                    
+                    <div class="alert alert-danger mt-3">
+                        <strong>Error Details:</strong>
+                        <div th:if="${status}" class="mt-1">
+                            <strong>Status:</strong> <span th:text="${status}">500</span>
+                        </div>
+                        <div th:if="${error}" class="mt-1">
+                            <strong>Error:</strong> <span th:text="${error}">Internal Server Error</span>
+                        </div>
+                        <div th:if="${message}" class="mt-1">
+                            <strong>Message:</strong> <span th:text="${message}">An unexpected error occurred</span>
+                        </div>
+                        <div th:if="${path}" class="mt-1">
+                            <strong>Path:</strong> <span th:text="${path}">/cars</span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-2 mt-3" style="justify-content: center; flex-wrap: wrap;">
+                        <a href="/" class="btn btn-primary">
+                            <i class="fas fa-home"></i> Go Home
+                        </a>
+                        <a href="/cars" class="btn btn-secondary">
+                            <i class="fas fa-list"></i> View Cars
+                        </a>
+                        <button onclick="history.back()" class="btn btn-outline">
+                            <i class="fas fa-arrow-left"></i> Go Back
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                <h2 class="card-title">Common Solutions</h2>
+            </div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div>
+                        <h4><i class="fas fa-refresh" style="color: var(--primary-color);"></i> Refresh the Page</h4>
+                        <p>Sometimes a simple page refresh can resolve temporary issues.</p>
+                    </div>
+                    <div>
+                        <h4><i class="fas fa-check-circle" style="color: var(--success-color);"></i> Check Your Input</h4>
+                        <p>Make sure all required fields are filled out correctly.</p>
+                    </div>
+                    <div>
+                        <h4><i class="fas fa-question-circle" style="color: var(--warning-color);"></i> Contact Support</h4>
+                        <p>If the problem persists, please contact our support team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Auto-hide error details after 10 seconds
+        setTimeout(function() {
+            const errorDetails = document.querySelector('.alert-danger');
+            if (errorDetails) {
+                errorDetails.style.opacity = '0.7';
+            }
+        }, 10000);
+    </script>
+</body>
+</html>
+
+

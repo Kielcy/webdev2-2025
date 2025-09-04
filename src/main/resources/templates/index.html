@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Management System</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <i class="fas fa-car"></i> Car Management
+            </a>
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="/cars">View Cars</a>
+                <a href="/cars/add">Add Car</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <h1 class="page-title">Welcome to Car Management System</h1>
+            <p class="page-subtitle">Manage your vehicle inventory with ease and efficiency 
+                <span th:if="${!#lists.isEmpty(cars)}" class="text-muted">- You have <strong th:text="${#lists.size(cars)}">0</strong> cars in your inventory</span>
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Quick Actions</h2>
+            </div>
+            <div class="card-body">
+                <div class="d-flex gap-2" style="flex-wrap: wrap;">
+                    <a href="/cars" class="btn btn-primary">
+                        <i class="fas fa-list"></i> View All Cars
+                    </a>
+                    <a href="/cars/add" class="btn btn-success">
+                        <i class="fas fa-plus"></i> Add New Car
+                    </a>
+                    <a href="/cars" class="btn btn-outline">
+                        <i class="fas fa-search"></i> Search Cars
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                <h2 class="card-title">Your Cars</h2>
+            </div>
+            <div class="card-body">
+                <div th:if="${#lists.isEmpty(cars)}" class="empty-state">
+                    <div class="empty-state-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>No Cars Yet</h3>
+                    <p>Start by adding your first car to the system</p>
+                    <a href="/cars/add" class="btn btn-primary mt-2">
+                        <i class="fas fa-plus"></i> Add Your First Car
+                    </a>
+                </div>
+                
+                <div th:if="${!#lists.isEmpty(cars)}">
+                    <div class="car-grid">
+                        <div th:each="car : ${cars}" class="car-card">
+                            <div class="car-image">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="car-info">
+                                <h3 class="car-title" th:text="${car.make + ' ' + car.model}">Car Name</h3>
+                                <div class="car-details">
+                                    <div class="car-detail">
+                                        <span>Year:</span>
+                                        <span th:text="${car.year}">2023</span>
+                                    </div>
+                                    <div class="car-detail">
+                                        <span>Color:</span>
+                                        <span th:text="${car.color}">Red</span>
+                                    </div>
+                                    <div class="car-detail">
+                                        <span>Body:</span>
+                                        <span th:text="${car.bodyType ?: 'N/A'}">Sedan</span>
+                                    </div>
+                                    <div class="car-detail">
+                                        <span>Engine:</span>
+                                        <span th:text="${car.engineType ?: 'N/A'}">V6</span>
+                                    </div>
+                                    <div class="car-detail">
+                                        <span>License:</span>
+                                        <span th:text="${car.licensePlate ?: 'N/A'}">ABC-123</span>
+                                    </div>
+                                </div>
+                                <div class="car-actions">
+                                    <a th:href="@{/cars/view/{id}(id=${car.id})}" class="btn btn-primary">
+                                        <i class="fas fa-eye"></i> View
+                                    </a>
+                                    <a th:href="@{/cars/edit/{id}(id=${car.id})}" class="btn btn-secondary">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
