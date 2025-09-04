@@ -1,5 +1,6 @@
-package com.johnverz.webdev1_g1.exceptions;
+package com.johnverz.webdev1_g1.exception;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -9,7 +10,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     public String handleResourceNotFound(ResourceNotFoundException ex, Model model) {
         model.addAttribute("message", ex.getMessage());
-        return "error/error";
+        return "error/error";  // Thymeleaf error page
     }
 
     @ExceptionHandler(Exception.class)

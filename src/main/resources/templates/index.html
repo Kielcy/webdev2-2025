@@ -21,7 +21,9 @@
             <td th:text="${car.model}"></td>
             <td th:text="${car.year}"></td>
             <td th:text="${car.color}"></td>
-
+            <td>
+                <a th:href="@{/show(id=${car.id})}" class="button">Show</a>
+            </td>
         </tr>
     </tbody>
 </table>

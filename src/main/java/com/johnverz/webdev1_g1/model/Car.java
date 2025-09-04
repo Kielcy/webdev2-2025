@@ -1,4 +1,5 @@
-package com.johnverz.webdev1_g1.models;
+
+package com.johnverz.webdev1_g1.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

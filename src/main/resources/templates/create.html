@@ -7,9 +7,13 @@
 <body>
 <form action="/save" method="post" th:object="${car}">
     <input type="text" th:field="*{make}" placeholder="Make">
+    <div th:if="${#fields.hasErrors('make')}" th:errors="*{make}"></div>
     <input type="text" th:field="*{model}" placeholder="Model">
+    <div th:if="${#fields.hasErrors('model')}" th:errors="*{model}"></div>
     <input type="number" th:field="*{year}" placeholder="Year">
+    <div th:if="${#fields.hasErrors('year')}" th:errors="*{year}"></div>
     <input type="text" th:field="*{color}" placeholder="Ngolor">
+    <div th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></div>
     <button>Save</button>
 </form>
 </body>
