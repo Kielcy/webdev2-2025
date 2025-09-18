@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" th:replace="~{layout :: layout(~{::body})}">
+<body>
+<div class="card error-card">
+    <h1>Server error</h1>
+    <p>An unexpected error occurred. Please try again later.</p>
+    <div class="error" th:if="${message}" th:text="${message}"></div>
+    <a class="btn" th:href="@{/}">Go Home</a>
+    <div sec:authorize="isAnonymous()" style="margin-top:10px">
+        <p class="muted">You'll be redirected to login shortly...</p>
+        <meta http-equiv="refresh" content="3;url=/login?errorFrom=1&status=500" />
+    </div>
+</div>
+</body>
+</html>
+
+
