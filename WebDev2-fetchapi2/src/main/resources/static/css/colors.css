@@ -1,0 +1,130 @@
+/**
+ * Color Palette Variables
+ * Car Application - Design System
+ */
+
+:root {
+  /* Primary Colors */
+  --color-primary: #0A84FF;
+  --color-primary-hover: #2A9AFF;
+  --color-primary-active: #0070D4;
+  --color-primary-light: rgba(10, 132, 255, 0.1);
+  --color-primary-dark: #005BB5;
+
+  /* Secondary Colors */
+  --color-secondary: #1D1D1D;
+  --color-secondary-hover: #2D2D2D;
+  --color-secondary-active: #151515;
+  --color-secondary-light: #2A2A2A;
+
+  /* Accent Colors */
+  --color-accent: #FFD60A;
+  --color-accent-hover: #FFE84D;
+  --color-accent-active: #E6C209;
+  --color-accent-light: rgba(255, 214, 10, 0.1);
+
+  /* Background Colors */
+  --color-background: #0F0F0F;
+  --color-background-overlay: rgba(15, 15, 15, 0.9);
+
+  /* Surface Colors */
+  --color-surface: #1F1F1F;
+  --color-surface-hover: #2A2A2A;
+  --color-surface-elevated: #2F2F2F;
+
+  /* Text Colors */
+  --color-text: #FFFFFF;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: rgba(255, 255, 255, 0.8);
+  --color-text-tertiary: rgba(255, 255, 255, 0.6);
+  --color-text-disabled: rgba(255, 255, 255, 0.4);
+  --color-text-on-accent: #0F0F0F;
+
+  /* Border Colors */
+  --color-border: #1D1D1D;
+  --color-border-light: rgba(29, 29, 29, 0.5);
+  --color-border-focus: #0A84FF;
+
+  /* Status Colors */
+  --color-success: #34C759;
+  --color-warning: #FFD60A;
+  --color-error: #FF3B30;
+  --color-info: #0A84FF;
+
+  /* Shadow Colors */
+  --shadow-primary: rgba(10, 132, 255, 0.1);
+  --shadow-dark: rgba(0, 0, 0, 0.3);
+  --shadow-card: rgba(0, 0, 0, 0.2);
+}
+
+/* Utility Classes */
+.bg-primary { background-color: var(--color-primary); }
+.bg-secondary { background-color: var(--color-secondary); }
+.bg-accent { background-color: var(--color-accent); }
+.bg-background { background-color: var(--color-background); }
+.bg-surface { background-color: var(--color-surface); }
+
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-tertiary { color: var(--color-text-tertiary); }
+
+.border-primary { border-color: var(--color-border); }
+.border-focus { border-color: var(--color-border-focus); }
+
+/* Button Styles */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-primary:active {
+  background-color: var(--color-primary-active);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-secondary-hover);
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+.btn-accent:hover {
+  background-color: var(--color-accent-hover);
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  background-color: var(--color-surface-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-card);
+}
+
+/* Focus Styles */
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+

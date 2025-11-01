@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error</title>
+  <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+  <div class="container">
+    <h1>Error</h1>
+    <p style="text-align: center; color: var(--color-text-secondary); font-size: 18px;" th:text="${message}">Something went wrong</p>
+    <div class="back-link">
+      <a class="btn btn-primary" th:href="@{/}">← Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>

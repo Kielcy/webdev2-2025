@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Page</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Secure Page - Only for Logged In Users</h1>
+        <p style="font-size: 18px; text-align: center; color: var(--color-text-secondary);" th:text="'Hello, ' + ${#httpServletRequest.remoteUser}"></p>
+        <div class="back-link">
+            <a class="btn btn-danger" th:href="@{/logout}">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

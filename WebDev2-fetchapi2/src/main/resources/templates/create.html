@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Car</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Create New Car</h1>
+        
+        <form th:action="@{/create}" th:object="${car}" method="post">
+            <div class="form-group">
+                <label for="make">Make:</label>
+                <input type="text" id="make" th:field="*{make}" required>
+                <div th:if="${#fields.hasErrors('make')}" th:errors="*{make}"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="model">Model:</label>
+                <input type="text" id="model" th:field="*{model}" required>
+                <div th:if="${#fields.hasErrors('model')}" th:errors="*{model}"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="year">Year:</label>
+                <input type="number" id="year" th:field="*{year}" min="1900" max="2030" required>
+                <div th:if="${#fields.hasErrors('year')}" th:errors="*{year}"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="color">Color:</label>
+                <input type="text" id="color" th:field="*{color}" required>
+                <div th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="bodyType">Body Type:</label>
+                <input type="text" id="bodyType" th:field="*{bodyType}" required>
+                <div th:if="${#fields.hasErrors('bodyType')}" th:errors="*{bodyType}"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="engineType">Engine Type:</label>
+                <input type="text" id="engineType" th:field="*{engineType}" required>
+                <div th:if="${#fields.hasErrors('engineType')}" th:errors="*{engineType}"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="licensePlate">License Plate:</label>
+                <input type="text" id="licensePlate" th:field="*{licensePlate}" required>
+                <div th:if="${#fields.hasErrors('licensePlate')}" th:errors="*{licensePlate}"></div>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Create Car</button>
+                <a href="/" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
